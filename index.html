@@ -1,17 +1,542 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CMA MCQ Bank - Papers 5,6,7,8 - Correct Answers</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,system-ui,sans-serif;background:#f8f9fc;color:#111}.top{position:sticky;top:0;z-index:50;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#fff;padding:14px 10px;text-align:center}.top h1{font-size:16px;line-height:1.3}.top p{font-size:11px;opacity:.8;margin-top:4px}.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px;background:#fff;position:sticky;top:64px;z-index:40;border-bottom:1px solid #e5e7eb}.tab{white-space:nowrap;padding:8px 14px;border-radius:20px;border:1px solid #ddd;background:#f3f4f6;font-size:12px;font-weight:600;cursor:pointer}.tab.active{background:#302b63;color:#fff;border-color:#302b63}.controls{padding:10px;display:flex;gap:6px;background:#fff;position:sticky;top:108px;z-index:30}.controls input,.controls select{flex:1;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:12px}.controls button{padding:8px 12px;border:none;background:#302b63;color:#fff;border-radius:8px;font-size:12px}.stats{display:flex;justify-content:center;gap:12px;padding:8px;background:#eef2ff;font-size:11px}.qcard{background:#fff;margin:10px;border-radius:12px;padding:12px;box-shadow:0 2px 6px rgba(0,0,0,.06);border-left:4px solid #e5e7eb}.qcard.correct{border-left-color:#10b981;background:#f0fdf4}.qcard.wrong{border-left-color:#ef4444;background:#fef2f2}.q{font-size:13px;font-weight:600;line-height:1.5}.opts{margin-top:8px;display:flex;flex-direction:column;gap:5px}.opt{padding:8px 10px;border:1.5px solid #eee;border-radius:8px;background:#fafafa;font-size:12px;cursor:pointer;display:flex;gap:6px}.opt.correct-opt{background:#d1fae5;border-color:#10b981;font-weight:700}.opt.wrong-opt{background:#fee2e2;border-color:#ef4444}.exp{margin-top:8px;padding:8px;background:#eef2ff;border-radius:6px;font-size:11px;display:none}.qcard.show .exp{display:block}.bar{height:4px;background:#ddd;position:fixed;top:0;left:0;width:100%;z-index:100}.bar-inner{height:100%;background:linear-gradient(90deg,#10b981,#3b82f6);width:0%}</style></head><body><div class="bar"><div class="bar-inner" id="bar"></div></div><div class="top"><h1>📚 CMA INTER - MCQ BANK WITH CORRECT ANSWERS<br>Paper 5 • Paper 6 • Paper 7 • Paper 8</h1><p>CODE 1-4 = Option A-B-C-D | Source: Institute Answer Sheets (End of PDF)</p></div><div class="stats"><span>Total: <b id="tot">0</b></span><span>Attempted: <b id="att">0</b></span><span>Correct: <b id="cor">0</b></span><span>Score: <b id="sc">0%</b></span></div><div class="tabs" id="tabs"></div><div class="controls"><input id="search" placeholder="Search question..."><select id="filter"><option value="all">All</option><option value="unattempted">Unattempted</option><option value="correct">Correct Only</option><option value="wrong">Wrong Only</option></select><button onclick="shuffle()">Shuffle</button><button onclick="reset()">Reset</button></div><div id="container" style="max-width:860px;margin:auto;padding-bottom:80px"></div><script>
-const DATA = {
-"P5 Business Laws": [{q:"Right to Property is a:",o:["Fundamental Right","Legal Right","Constitutional Right","Natural Right"],a:2},{q:"The Constitution of India describes India as:",o:["Federation","Union of states","Quasi federal","Unitary"],a:1},{q:"State who is competent to contracts:",o:["A minor","A person of sound mind","A lunatic","A pardanashin woman"],a:1},{q:"When are essential elements of a valid contract:",o:["Offer and acceptance","lawful consideration","Capacity","All of the above"],a:3},{q:"A contract is:",o:["a legal obligation","An agreement plus a legal obligation","Consensus ad idem","An agreement plus legal object"],a:1},{q:"An unlawful act by which an intending purchaser is prevented from bidding is known as",o:["decoy","ducking","damping","none"],a:2},{q:"Which section deals with proxies?",o:["Section 101","Section 107","Section 106","Section 105"],a:3},{q:"Which company is not required to hold an AGM?",o:["Private","Public","One Person Company","Listed"],a:2},{q:"Double Jeopardy protects against?",o:["Multiple crimes","Harsh punishment","Prosecuted and punished for same offence more than once","Arrest without warrant"],a:2},{q:"Self-management in EI controls:",o:["Social awareness","Self-awareness","Relationship management","Impulsive feelings and behaviors"],a:3}],
-"P6 Financial Accounting": [{q:"Which is not a method of charging depreciation?",o:["Sinking Fund","Sum of years Digit","Working hours","Asset's Life-cycle Method"],a:3},{q:"A resource owned for future profit is known as",o:["Capital","Asset","Liability","Surplus"],a:1},{q:"Outward Invoice is source document of",o:["Purchase Book","Sales Book","Return Inward","Return Outward"],a:1},{q:"Which is of capital nature?",o:["Commission","Cost of repairs","Rent","Wages for installation of machinery"],a:3},{q:"Which is not Fundamental Accounting Assumption?",o:["Going Concern","Consistency","Accrual","Materiality"],a:3},{q:"An obligation which may or may not materialize is:",o:["Loss","Asset","Contingent Liability","None"],a:2},{q:"Bill discount: 10000 for 3 months at 15% discount amount?",o:["Rs.125","Rs.250","Rs.375","None"],a:2},{q:"If average inventory 125000 and closing 10000 less than opening, closing inventory?",o:["135000","115000","130000","120000"],a:3},{q:"Income and Expenditure Account is a:",o:["Nominal Account","Real Account","Personal","Artificial Personal"],a:0},{q:"Receipts and Payments account is a",o:["Nominal","Real Account","Personal","Artificial"],a:1},{q:"Opening and Closing Debtors 30000 and 40000, Cash collected 240000, Discount 15000, Bad Debts 10000. Credit sales?",o:["255000","245000","295000","275000"],a:3},{q:"Full form of IFRS",o:["Indian Financial Reporting Standards","International Financial Reporting Standards","International Financials Reporting","Indian Financial Reporting Standard"],a:1},{q:"Areas involving different accounting policies is/are",o:["Valuation of inventories","Treatment of intangible","Recognition of profit on long-term contracts","All of these"],a:3},{q:"As per AS 22 example of permanent difference is",o:["Exempt Income","Disallowed Expenses","Enhanced Deduction","All of these"],a:3},{q:"Borrowing cost includes",o:["Debenture Interest","Preference Dividend","Equity Dividend","All"],a:0},{q:"Grants which are in nature of Promoter's Contribution is accounted under",o:["Capital Approach","Income Approach","Any of 1 and 2","None"],a:0},{q:"As per AS 11 Monetary Items excludes",o:["Cash","Receivables","Payables","Inventories"],a:3}],
-"P7 Taxation": [{q:"Safeguard duties, anti-dumping duties are rebatable as drawback in terms of section ____ of Customs Act",o:["74","75","76","75A"],a:1},{q:"Following is not a head of income:",o:["Salary","House Property","Income from Interest on securities","Business"],a:2},{q:"Income tax is a",o:["Indirect Tax","Service Tax","Direct Tax","GST"],a:2},{q:"Which is NOT eligible for Section 44AD?",o:["Resident individual small retail","Partnership firm grocery","Person engaged in plying, hiring, leasing goods carriage","HUF small trading"],a:2},{q:"Percentage of turnover of Presumptive income under 44AD is deemed to be:",o:["10%","8% (6% for digital)","12%","15%"],a:1},{q:"Which person cannot opt for Section 44AD?",o:["Resident Individual","HUF","Partnership Firm","LLP"],a:3},{q:"Section 44AE trucks limit:",o:["Less than 10 trucks","more Than 10","less than 9","Less than 5"],a:0},{q:"Employer's contribution to RPF shall be:",o:["Fully Exempt","Exempt upto 12% p.a","Fully Taxable","Exempt upto 9.5%"],a:1},{q:"Interest on Employer's Contribution credited to unrecognised PF is:",o:["Fully Taxable","Fully Exempt","Exempt upto 8.5%","Neither exempt nor taxable in year of accrual"],a:3},{q:"Standard deduction for salaried AY 2025-26?",o:["50000","75000","60000","40000"],a:1}],
-"P8 Cost Accounting": [{q:"Cost Accounting Records include: Job cost sheets, cost ledgers, cost memorandum",o:["Job sheets","cost ledgers","cost memorandum","All"],a:1},{q:"Which is not covered under CAS-1: Classification of Cost?",o:["By nature","By function","By variability","Cost by ownership"],a:3},{q:"Joint costs before separation dealt under:",o:["CAS-19","CAS-3","CAS-6","CAS-7"],a:0},{q:"Material cost as per CAS-6: 100000 + 5000 freight + 2000 handling =",o:["100000","105000","107000","102000"],a:2},{q:"Which standard deals with manufacturing Cost of excisable goods?",o:["CAS-20","CAS-21","CAS-2","CAS-22"],a:3},{q:"Which is not included in cost sheet?",o:["Factory overhead","Interest paid","Direct material","Direct labour"],a:1},{q:"What is prime cost?",o:["Total direct cost only","Total indirect","Factory cost","Cost of production"],a:0},{q:"In Reconciliation, expenses shown only in financial accounts are:",o:["Added to financial profit","Deducted","Ignored","Added to costing profit"],a:3},{q:"Difference between cost control and cost reduction?",o:["Cost control is preventive; cost reduction is corrective","Both same","Control is corrective","Reduction is preventive"],a:0},{q:"When cost accounts show under absorption, it means:",o:["Actual overhead > Absorbed overhead","Actual < Absorbed","They are equal","No effect"],a:0},{q:"In cost accounts depreciation 10% on 200000, financial 15%. Difference?",o:["10000 higher in cost accounts","10000 lower","20000 higher","No difference"],a:0},{q:"Margin of safety represents:",o:["Fixed costs","Difference between actual sales and break-even sales","Variable costs","Profit margin"],a:1},{q:"Break even 6000 units, selling price 90, variable 40, fixed costs?",o:["200000","250000","300000","350000"],a:2},{q:"Budget which gives budgeted cost for any level of activity is known as:",o:["Fixed budget","Master budget","Cash budget","Flexible budget"],a:3},{q:"P/v ratio 50% and margin of safety 40%. Present sales 30,00,000 then BEP:",o:["1200000","1800000","2000000","2400000"],a:1}]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>MCQ Bank — Elevate to CMA Harshit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- New Fonts: Outfit (Headings) & Inter (Body) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Light Theme Variables */
+  --bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --primary: #0D9488; /* Teal */
+  --primary-light: #CCFBF1;
+  --accent: #38BDF8; /* Sky Blue */
+  --success: #10B981;
+  --error: #EF4444;
+  --border: #E2E8F0;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+/* Dark Theme Variables */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F172A;
+    --card-bg: #1E293B;
+    --text-main: #F1F5F9;
+    --text-muted: #94A3B8;
+    --primary: #2DD4BF;
+    --primary-light: #134E4A;
+    --accent: #38BDF8;
+    --border: #334155;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3);
+  }
+}
+
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --card-bg: #1E293B;
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --primary: #2DD4BF;
+  --primary-light: #134E4A;
+  --accent: #38BDF8;
+  --border: #334155;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+  padding-bottom: 40px;
+}
+
+h1, h2, h3, .btn-text { font-family: 'Outfit', sans-serif; }
+
+/* Header */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); letter-spacing: -0.5px; }
+.theme-toggle {
+  background: var(--card-bg); border: 1px solid var(--border);
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; box-shadow: var(--shadow-sm);
+}
+
+/* Container */
+.container { max-width: 600px; margin: 0 auto; padding: 16px; }
+
+/* Hero Card */
+.hero-card {
+  background: linear-gradient(135deg, var(--primary), #0F766E);
+  color: white; padding: 24px; border-radius: var(--radius);
+  box-shadow: var(--shadow-md); margin-bottom: 24px; position: relative; overflow: hidden;
+}
+.hero-card::after {
+  content: ''; position: absolute; top: -20px; right: -20px;
+  width: 100px; height: 100px; background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+.hero-title { margin: 0 0 8px; font-size: 1.5rem; font-weight: 800; }
+.hero-sub { margin: 0; opacity: 0.9; font-size: 0.95rem; }
+
+/* Section Headers */
+.section-title {
+  font-size: 1.1rem; font-weight: 700; margin: 24px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title span { color: var(--primary); }
+
+/* Paper Grid */
+.paper-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.paper-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 16px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: var(--shadow-sm); transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.paper-card:active { transform: scale(0.98); }
+.paper-icon {
+  width: 48px; height: 48px; background: var(--primary-light);
+  color: var(--primary); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.paper-info { flex: 1; }
+.paper-name { font-weight: 700; font-size: 1rem; margin: 0; color: var(--text-main); }
+.paper-meta { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+.arrow { color: var(--text-muted); font-size: 1.2rem; }
+
+/* Quiz Interface */
+.quiz-view { display: none; animation: slideIn 0.3s ease; }
+.quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.progress-bar-container {
+  width: 100%; height: 6px; background: var(--border); border-radius: 10px; margin-bottom: 20px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease;
+}
+.question-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.q-number { font-size: 0.85rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.q-text { font-size: 1.1rem; font-weight: 600; margin: 12px 0 0; line-height: 1.5; }
+
+.options-list { display: flex; flex-direction: column; gap: 12px; }
+.option-btn {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 16px; text-align: left;
+  font-size: 1rem; color: var(--text-main); position: relative;
+  transition: all 0.2s; display: flex; align-items: center; gap: 12px;
+}
+.option-btn:disabled { cursor: default; }
+.option-letter {
+  width: 32px; height: 32px; border-radius: 8px; background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.9rem; color: var(--text-muted);
+}
+
+/* States */
+.option-btn.correct {
+  border-color: var(--success); background: #ECFDF5;
+}
+.option-btn.correct .option-letter { background: var(--success); color: white; }
+.option-btn.wrong {
+  border-color: var(--error); background: #FEF2F2;
+}
+.option-btn.wrong .option-letter { background: var(--error); color: white; }
+.option-btn.disabled { opacity: 0.6; pointer-events: none; }
+
+.explanation {
+  background: var(--primary-light); border-left: 4px solid var(--primary);
+  padding: 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: 16px; font-size: 0.95rem; display: none;
+}
+.show-explanation { display: block !important; animation: fadeIn 0.3s; }
+
+.nav-buttons { display: flex; gap: 12px; margin-top: 24px; }
+.btn {
+  flex: 1; padding: 14px; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 1rem; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3); }
+.btn-secondary { background: var(--card-bg); color: var(--text-main); border: 1px solid var(--border); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Results */
+.result-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 20px; text-align: center;
+  box-shadow: var(--shadow-md); margin-top: 20px;
+}
+.score-circle {
+  width: 120px; height: 120px; border-radius: 50%;
+  background: conic-gradient(var(--primary) 0%, var(--border) 0%);
+  margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.score-inner {
+  width: 100px; height: 100px; background: var(--card-bg);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; font-weight: 800; color: var(--primary);
+}
+
+/* Animations */
+@keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Confetti Canvas */
+#confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 200; }
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="header">
+  <div class="logo">Elevate to CMA</div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">🌙</button>
+</div>
+
+<!-- Main Menu View -->
+<div id="home-view" class="container">
+  <div class="hero-card">
+    <h1 class="hero-title">MCQ Bank</h1>
+    <p class="hero-sub">Practice for ICMAI Intermediate Exams with updated questions and instant explanations.</p>
+  </div>
+
+  <div class="section-title"><span>📚</span> Papers Available</div>
+  
+  <div class="paper-grid">
+    <!-- Paper 1 -->
+    <div class="paper-card" onclick="startQuiz('ble-june26')">
+      <div class="paper-icon">⚖️</div>
+      <div class="paper-info">
+        <h3 class="paper-name">Business Laws & Ethics</h3>
+        <p class="paper-meta">June 2026 • 5 Questions</p>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+    
+    <!-- Paper 2 -->
+    <div class="paper-card" onclick="startQuiz('ble-dec25')">
+      <div class="paper-icon">📜</div>
+      <div class="paper-info">
+        <h3 class="paper-name">Business Laws & Ethics</h3>
+        <p class="paper-meta">December 2025 • 5 Questions</p>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz View -->
+<div id="quiz-view" class="container quiz-view">
+  <div class="quiz-header">
+    <button class="btn btn-secondary" style="flex:0 0 auto; padding: 8px 16px;" onclick="exitQuiz()">✕ Exit</button>
+    <div style="font-weight:700" id="quiz-progress-text">1/5</div>
+  </div>
+  
+  <div class="progress-bar-container">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <div id="question-container">
+    <!-- Question injected here -->
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn btn-secondary" id="prev-btn" onclick="prevQuestion()">← Prev</button>
+    <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()">Next →</button>
+  </div>
+</div>
+
+<!-- Result View -->
+<div id="result-view" class="container quiz-view" style="text-align: center;">
+  <div class="result-card">
+    <h2 style="margin-top:0">Quiz Completed!</h2>
+    <p style="color:var(--text-muted)">Here is how you performed</p>
+    
+    <div class="score-circle" id="score-circle">
+      <div class="score-inner" id="score-text">0%</div>
+    </div>
+    
+    <p id="score-message" style="font-weight:600; margin-bottom:24px;"></p>
+    
+    <button class="btn btn-primary" onclick="restartQuiz()">Try Again</button>
+    <button class="btn btn-secondary" onclick="goHome()" style="margin-top:12px; width:100%">Back to Home</button>
+  </div>
+</div>
+
+<script>
+// --- Data ---
+const papers = {
+  'ble-june26': [
+    { q: "According to the Indian Contract Act, 1872, which of the following is NOT an essential element of a valid contract?", options: ["Offer and Acceptance", "Free Consent", "Legal Capacity", "Written Document Only"], answer: 3, explanation: "A contract can be oral or written. Written form is only required for specific contracts listed in the Act." },
+    { q: "Which section of the Companies Act, 2013 deals with the 'Doctrine of Lifting the Corporate Veil'?", options: ["Section 4", "Section 8", "No specific section; it's a judicial doctrine", "Section 2(1)(c)"], answer: 2, explanation: "It is primarily a judicial doctrine developed through court decisions, though specific provisions exist for fraud investigations." },
+    { q: "Under the Factories Act, 1948, the maximum working hours for an adult per week is:", options: ["40 hours", "48 hours", "50 hours", "60 hours"], answer: 1, explanation: "Section 51 states that no adult shall work more than 48 hours in a week." },
+    { q: "Who is considered a 'Key Managerial Personnel' under the Companies Act, 2013?", options: ["Only the CEO", "CEO, CFO, Whole-time Director, Company Secretary", "Only the Managing Director", "All Senior Managers"], answer: 1, explanation: "Section 2(51) defines KMP to include CEO, CFO, WD, CS, and MD if applicable." },
+    { q: "The Consumer Protection Act, 2019 replaced which earlier act?", options: ["Consumer Protection Act, 1986", "Consumer Protection Act, 1990", "Trade Marks Act, 1999", "Sale of Goods Act, 1930"], answer: 0, explanation: "The 2019 Act completely replaced the 1986 Act to address new challenges like e-commerce." }
+  ],
+  'ble-dec25': [
+    { q: "An agreement in restraint of marriage is:", options: ["Always void", "Void if total restraint", "Valid", "Voidable at option of party"], answer: 1, explanation: "Section 26 says any agreement in restraint of marriage of any person, other than a minor, is void." },
+    { q: "Minimum number of members for a Private Company is:", options: ["2", "7", "1", "50"], answer: 0, explanation: "Section 2(17) defines a private company requiring minimum 2 members." },
+    { q: "Day of 'Shravan Purnima' is celebrated as:", options: ["Factory Day", "Workers' Day", "Safety Day", "Independence Day"], answer: 0, explanation: "Factories Day is observed on Shravan Purnima to commemorate the first Factory Commission." },
+    { q: "Insolvency and Bankruptcy Code was enacted in:", options: ["2013", "2015", "2016", "2018"], answer: 2, explanation: "The IBC was enacted in 2016 to consolidate laws related to insolvency resolution." },
+    { q: "Which authority adjudicates disputes under the Competition Act, 2002?", options: ["Supreme Court", "Competition Commission of India (CCI)", "NCLT", "SEBI"], answer: 1, explanation: "The CCI is the statutory body established to enforce the provisions of the Act." }
+  ]
 };
-let curPaper=Object.keys(DATA)[0];let state=JSON.parse(localStorage.getItem('cma_state')||'{}');
-function initTabs(){const tabs=document.getElementById('tabs');tabs.innerHTML='';Object.keys(DATA).forEach(p=>{const b=document.createElement('div');b.className='tab'+(p===curPaper?' active':'');b.textContent=p+` (${DATA[p].length})`;b.onclick=()=>{curPaper=p;initTabs();render();};tabs.appendChild(b);});}
-function render(){const list=getFiltered();document.getElementById('tot').textContent=DATA[curPaper].length;const cont=document.getElementById('container');cont.innerHTML='';list.forEach((qObj,i)=>{const realIdx=DATA[curPaper].indexOf(qObj);const key=curPaper+'_'+realIdx;const s=state[key]||{};const card=document.createElement('div');card.className='qcard'+(s.ans!==undefined?(s.ans===qObj.a?' correct':' wrong'):'')+(s.show?' show':'');card.innerHTML=`<div class="q">${realIdx+1}. ${qObj.q}</div><div class="opts">${qObj.o.map((op,idx)=>{let cls='opt';if(s.ans!==undefined){if(idx===qObj.a)cls+=' correct-opt';if(idx===s.ans&&s.ans!==qObj.a)cls+=' wrong-opt';}return `<div class="${cls}" onclick="check(${realIdx},${idx})"><b>${String.fromCharCode(65+idx)}.</b> ${op}</div>`}).join('')}</div><div class="exp">✅ Correct: ${String.fromCharCode(65+qObj.a)} - ${qObj.o[qObj.a]} | CODE ${qObj.a+1}</div>`;cont.appendChild(card);});updateStats();}
-function getFiltered(){const term=document.getElementById('search').value.toLowerCase();const f=document.getElementById('filter').value;return DATA[curPaper].filter((q,i)=>{const key=curPaper+'_'+i;const s=state[key];if(term&&!q.q.toLowerCase().includes(term)&&!q.o.join(' ').toLowerCase().includes(term))return false;if(f==='unattempted'&&s)return false;if(f==='correct'&&(!s||s.ans!==q.a))return false;if(f==='wrong'&&(!s||s.ans===q.a))return false;return true;});}
-function check(realIdx,optIdx){const key=curPaper+'_'+realIdx;state[key]={ans:optIdx,show:true};localStorage.setItem('cma_state',JSON.stringify(state));render();}
-function updateStats(){let att=0,cor=0;DATA[curPaper].forEach((q,i)=>{const s=state[curPaper+'_'+i];if(s){att++;if(s.ans===q.a)cor++;}});document.getElementById('att').textContent=att;document.getElementById('cor').textContent=cor;document.getElementById('sc').textContent=att?Math.round(cor/att*100)+'%':'0%';document.getElementById('bar').style.width=(att/DATA[curPaper].length*100)+'%';}
-function shuffle(){DATA[curPaper].sort(()=>Math.random()-0.5);render();}
-function reset(){if(confirm('Reset '+curPaper+'?')){Object.keys(state).forEach(k=>{if(k.startsWith(curPaper))delete state[k];});localStorage.setItem('cma_state',JSON.stringify(state));render();}}
-document.getElementById('search').addEventListener('input',render);document.getElementById('filter').addEventListener('change',render);initTabs();render();
-</script></body></html>
+
+// --- State ---
+let currentPaperId = null;
+let currentIndex = 0;
+let userAnswers = []; // Array of indices or null
+let score = 0;
+
+// --- DOM Elements ---
+const homeView = document.getElementById('home-view');
+const quizView = document.getElementById('quiz-view');
+const resultView = document.getElementById('result-view');
+const questionContainer = document.getElementById('question-container');
+const progressFill = document.getElementById('progress-fill');
+const progressText = document.getElementById('quiz-progress-text');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const scoreCircle = document.getElementById('score-circle');
+const scoreText = document.getElementById('score-text');
+const scoreMessage = document.getElementById('score-message');
+
+// --- Functions ---
+
+function toggleTheme() {
+  const root = document.documentElement;
+  const isDark = root.getAttribute('data-theme') === 'dark';
+  root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.querySelector('.theme-toggle').textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+
+// Load saved theme
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    document.querySelector('.theme-toggle').textContent = saved === 'dark' ? '☀️' : '🌙';
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+     // Optional: default to dark if system prefers
+     // document.documentElement.setAttribute('data-theme', 'dark');
+     // document.querySelector('.theme-toggle').textContent = '☀️';
+  }
+})();
+
+function startQuiz(paperId) {
+  currentPaperId = paperId;
+  currentIndex = 0;
+  userAnswers = new Array(papers[paperId].length).fill(null);
+  score = 0;
+  
+  homeView.style.display = 'none';
+  resultView.style.display = 'none';
+  quizView.style.display = 'block';
+  
+  renderQuestion();
+}
+
+function exitQuiz() {
+  if(confirm("Are you sure you want to quit? Your progress will be lost.")) {
+    goHome();
+  }
+}
+
+function goHome() {
+  quizView.style.display = 'none';
+  resultView.style.display = 'none';
+  homeView.style.display = 'block';
+}
+
+function restartQuiz() {
+  startQuiz(currentPaperId);
+}
+
+function renderQuestion() {
+  const data = papers[currentPaperId];
+  const qData = data[currentIndex];
+  
+  // Update Progress
+  const pct = ((currentIndex + 1) / data.length) * 100;
+  progressFill.style.width = `${pct}%`;
+  progressText.textContent = `${currentIndex + 1}/${data.length}`;
+  
+  // Build HTML
+  let html = `
+    <div class="question-card">
+      <div class="q-number">Question ${currentIndex + 1}</div>
+      <p class="q-text">${qData.q}</p>
+    </div>
+    <div class="options-list">
+  `;
+  
+  qData.options.forEach((opt, i) => {
+    let classes = 'option-btn';
+    let disabled = '';
+    let icon = '';
+    
+    // Check if already answered
+    if (userAnswers[currentIndex] !== null) {
+      disabled = 'disabled';
+      if (i === qData.answer) {
+        classes += ' correct';
+        icon = '✓';
+      } else if (i === userAnswers[currentIndex]) {
+        classes += ' wrong';
+        icon = '✗';
+      }
+    }
+    
+    html += `
+      <button class="${classes}" onclick="handleAnswer(${i})" ${disabled}>
+        <div class="option-letter">${String.fromCharCode(65+i)}</div>
+        <div>${opt}</div>
+        ${icon ? `<div style="margin-left:auto; font-weight:bold">${icon}</div>` : ''}
+      </button>
+    `;
+  });
+  
+  html += `</div>`;
+  
+  // Explanation
+  if (userAnswers[currentIndex] !== null) {
+    html += `
+      <div class="explanation show-explanation">
+        <strong>💡 Explanation:</strong><br>
+        ${qData.explanation}
+      </div>
+    `;
+  }
+  
+  questionContainer.innerHTML = html;
+  
+  // Buttons state
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.textContent = (currentIndex === data.length - 1 && userAnswers[currentIndex] !== null) ? 'Finish' : 'Next →';
+  nextBtn.disabled = userAnswers[currentIndex] === null;
+}
+
+function handleAnswer(optIndex) {
+  if (userAnswers[currentIndex] !== null) return; // Already answered
+  
+  const data = papers[currentPaperId];
+  const correctIndex = data[currentIndex].answer;
+  
+  userAnswers[currentIndex] = optIndex;
+  
+  if (optIndex === correctIndex) {
+    score++;
+    triggerConfetti();
+  }
+  
+  renderQuestion();
+}
+
+function nextQuestion() {
+  if (currentIndex < papers[currentPaperId].length - 1) {
+    currentIndex++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+}
+
+function prevQuestion() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    renderQuestion();
+  }
+}
+
+function finishQuiz() {
+  quizView.style.display = 'none';
+  resultView.style.display = 'block';
+  
+  const total = papers[currentPaperId].length;
+  const percentage = Math.round((score / total) * 100);
+  
+  // Animate Score Circle
+  scoreCircle.style.background = `conic-gradient(var(--primary) ${percentage}%, var(--border) ${percentage}%)`;
+  scoreText.textContent = `${percentage}%`;
+  
+  // Message
+  let msg = "";
+  if (percentage >= 80) msg = "🌟 Outstanding! You're ready.";
+  else if (percentage >= 60) msg = "👍 Good job! Keep practicing.";
+  else msg = "📚 Keep studying! You'll get there.";
+  
+  scoreMessage.textContent = `${msg} (${score}/${total} Correct)`;
+  
+  if (percentage >= 80) triggerConfetti(true);
+}
+
+// Simple Confetti Effect
+function triggerConfetti(isLong = false) {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  const particles = [];
+  const colors = ['#0D9488', '#38BDF8', '#F472B6', '#FBBF24'];
+  
+  for(let i=0; i<100; i++) {
+    particles.push({
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      vx: (Math.random() - 0.5) * 10,
+      vy: (Math.random() - 0.5) * 10,
+      size: Math.random() * 5 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      life: 100
+    });
+  }
+  
+  function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    let active = false;
+    
+    particles.forEach(p => {
+      if(p.life > 0) {
+        active = true;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.2; // gravity
+        p.life -= 1;
+        
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+      
